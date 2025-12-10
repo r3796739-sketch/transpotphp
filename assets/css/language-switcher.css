@@ -1,0 +1,124 @@
+/* Language Switcher Styles */
+.main-menu__language-switcher {
+    margin-left: 20px;
+}
+
+.language-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.language-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.language-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.language-btn i {
+    font-size: 16px;
+}
+
+.current-lang {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.language-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 150px;
+    margin-top: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.language-dropdown:hover .language-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    color: #333333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.3s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.lang-option:last-child {
+    border-bottom: none;
+}
+
+.lang-option:hover {
+    background: #f8f8f8;
+}
+
+.lang-option.active {
+    background: #f0f0f0;
+    font-weight: 600;
+    color: var(--tanspot-primary, #ff6b35);
+}
+
+.flag-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+    .main-menu__language-switcher {
+        margin-left: 10px;
+    }
+
+    .language-btn {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+
+    .language-btn i {
+        font-size: 14px;
+    }
+
+    .current-lang {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    .main-menu__language-switcher {
+        margin-left: 5px;
+    }
+
+    .language-btn {
+        padding: 3px 8px;
+    }
+
+    .current-lang {
+        display: none;
+    }
+}
