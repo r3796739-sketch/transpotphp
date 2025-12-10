@@ -33,6 +33,16 @@
                     element.placeholder = element.getAttribute('data-original-placeholder');
                 }
             });
+
+            const titleElement = document.querySelector('title');
+            if (titleElement && titleElement.hasAttribute('data-original-text')) {
+                titleElement.textContent = titleElement.getAttribute('data-original-text');
+            }
+
+            const metaDescriptionElement = document.querySelector('meta[name="description"]');
+            if (metaDescriptionElement && metaDescriptionElement.hasAttribute('data-original-text')) {
+                metaDescriptionElement.content = metaDescriptionElement.getAttribute('data-original-text');
+            }
             return;
         }
 
@@ -61,6 +71,29 @@
                 element.placeholder = translations[key];
             }
         });
+
+        // Translate title and meta description
+        const titleElement = document.querySelector('title');
+        if (titleElement) {
+            const key = titleElement.getAttribute('data-translate');
+            if (translations[key]) {
+                if (!titleElement.hasAttribute('data-original-text')) {
+                    titleElement.setAttribute('data-original-text', titleElement.textContent);
+                }
+                titleElement.textContent = translations[key];
+            }
+        }
+
+        const metaDescriptionElement = document.querySelector('meta[name="description"]');
+        if (metaDescriptionElement) {
+            const key = metaDescriptionElement.getAttribute('data-translate');
+            if (translations[key]) {
+                if (!metaDescriptionElement.hasAttribute('data-original-text')) {
+                    metaDescriptionElement.setAttribute('data-original-text', metaDescriptionElement.content);
+                }
+                metaDescriptionElement.content = translations[key];
+            }
+        }
     }
 
     // Set active language in UI
